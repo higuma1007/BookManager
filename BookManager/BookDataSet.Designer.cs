@@ -279,7 +279,7 @@ namespace BookManager {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class bookDataTableDataTable : global::System.Data.TypedTableBase<bookDataTableRow> {
             
-            private global::System.Data.DataColumn column署名;
+            private global::System.Data.DataColumn column書名;
             
             private global::System.Data.DataColumn column著者;
             
@@ -320,9 +320,9 @@ namespace BookManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 署名Column {
+            public global::System.Data.DataColumn 書名Column {
                 get {
-                    return this.column署名;
+                    return this.column書名;
                 }
             }
             
@@ -379,10 +379,10 @@ namespace BookManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bookDataTableRow AddbookDataTableRow(string 署名, string 著者, int 値段) {
+            public bookDataTableRow AddbookDataTableRow(string 書名, string 著者, int 値段) {
                 bookDataTableRow rowbookDataTableRow = ((bookDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        署名,
+                        書名,
                         著者,
                         値段};
                 rowbookDataTableRow.ItemArray = columnValuesArray;
@@ -407,7 +407,7 @@ namespace BookManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.column署名 = base.Columns["署名"];
+                this.column書名 = base.Columns["書名"];
                 this.column著者 = base.Columns["著者"];
                 this.column値段 = base.Columns["値段"];
             }
@@ -415,8 +415,8 @@ namespace BookManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.column署名 = new global::System.Data.DataColumn("署名", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column署名);
+                this.column書名 = new global::System.Data.DataColumn("書名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column書名);
                 this.column著者 = new global::System.Data.DataColumn("著者", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column著者);
                 this.column値段 = new global::System.Data.DataColumn("値段", typeof(int), null, global::System.Data.MappingType.Element);
@@ -563,17 +563,17 @@ namespace BookManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 署名 {
+            public string 書名 {
                 get {
                     try {
-                        return ((string)(this[this.tablebookDataTable.署名Column]));
+                        return ((string)(this[this.tablebookDataTable.書名Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'bookDataTable\' にある列 \'署名\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'bookDataTable\' にある列 \'書名\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tablebookDataTable.署名Column] = value;
+                    this[this.tablebookDataTable.書名Column] = value;
                 }
             }
             
@@ -611,14 +611,14 @@ namespace BookManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is署名Null() {
-                return this.IsNull(this.tablebookDataTable.署名Column);
+            public bool Is書名Null() {
+                return this.IsNull(this.tablebookDataTable.書名Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set署名Null() {
-                this[this.tablebookDataTable.署名Column] = global::System.Convert.DBNull;
+            public void Set書名Null() {
+                this[this.tablebookDataTable.書名Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

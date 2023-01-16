@@ -32,6 +32,11 @@ namespace BookManager
         {
             this.components = new System.ComponentModel.Container();
             this.bookDataGrid = new System.Windows.Forms.DataGridView();
+            this.書名DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.著者DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.値段DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bookDataSet = new BookManager.BookDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,29 +45,64 @@ namespace BookManager
             this.price = new System.Windows.Forms.MaskedTextBox();
             this.removeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.bookDataSet = new BookManager.BookDataSet();
             this.bookzDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveButton = new System.Windows.Forms.Button();
             this.readButton = new System.Windows.Forms.Button();
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bookDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookzDataTableBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // bookDataGrid
             // 
+            this.bookDataGrid.AllowUserToAddRows = false;
             this.bookDataGrid.AutoGenerateColumns = false;
             this.bookDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookDataGrid.DataSource = this.bookDataSet;
+            this.bookDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.書名DataGridViewTextBoxColumn,
+            this.著者DataGridViewTextBoxColumn,
+            this.値段DataGridViewTextBoxColumn});
+            this.bookDataGrid.DataSource = this.bindingSource1;
             this.bookDataGrid.Location = new System.Drawing.Point(12, 34);
             this.bookDataGrid.Name = "bookDataGrid";
             this.bookDataGrid.RowTemplate.Height = 21;
             this.bookDataGrid.Size = new System.Drawing.Size(776, 348);
             this.bookDataGrid.TabIndex = 0;
+            // 
+            // 書名DataGridViewTextBoxColumn
+            // 
+            this.書名DataGridViewTextBoxColumn.DataPropertyName = "書名";
+            this.書名DataGridViewTextBoxColumn.HeaderText = "書名";
+            this.書名DataGridViewTextBoxColumn.Name = "書名DataGridViewTextBoxColumn";
+            // 
+            // 著者DataGridViewTextBoxColumn
+            // 
+            this.著者DataGridViewTextBoxColumn.DataPropertyName = "著者";
+            this.著者DataGridViewTextBoxColumn.HeaderText = "著者";
+            this.著者DataGridViewTextBoxColumn.Name = "著者DataGridViewTextBoxColumn";
+            // 
+            // 値段DataGridViewTextBoxColumn
+            // 
+            this.値段DataGridViewTextBoxColumn.DataPropertyName = "値段";
+            this.値段DataGridViewTextBoxColumn.HeaderText = "値段";
+            this.値段DataGridViewTextBoxColumn.Name = "値段DataGridViewTextBoxColumn";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "bookDataTable";
+            this.bindingSource1.DataSource = this.bookDataSet;
+            // 
+            // bookDataSet
+            // 
+            this.bookDataSet.DataSetName = "BookDataSet";
+            this.bookDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -133,11 +173,6 @@ namespace BookManager
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddButtonClicked);
             // 
-            // bookDataSet
-            // 
-            this.bookDataSet.DataSetName = "BookDataSet";
-            this.bookDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bookzDataTableBindingSource
             // 
             this.bookzDataTableBindingSource.DataMember = "bookzDataTable";
@@ -164,7 +199,7 @@ namespace BookManager
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.終了ToolStripMenuItem.Text = "終了";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -188,6 +223,11 @@ namespace BookManager
             this.readButton.UseVisualStyleBackColor = true;
             this.readButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // bindingSource2
+            // 
+            this.bindingSource2.DataMember = "bookDataTable";
+            this.bindingSource2.DataSource = this.bookDataSet;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -209,10 +249,11 @@ namespace BookManager
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.bookDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookDataTableBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,6 +278,11 @@ namespace BookManager
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button readButton;
         private ISupportInitialize bookDataTableBindingSource;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 書名DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 著者DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 値段DataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bindingSource2;
     }
 }
 
