@@ -30,32 +30,18 @@ namespace BookManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            const string FILE_PATH = @"bookManager.csv";
 
-            DataTable dt = createDataTable();
-
-            using (TextFieldParser p = new TextFieldParser(FILE_PATH, System.Text.Encoding.Default))
-            {
-                p.TextFieldType = FieldType.Delimited;
-                p.Delimiters = new string[] { "," };
-
-                string[] csvHeader = p.ReadFields();
-
-                while (!p.EndOfData)
-                {
-                    dt.Rows.Add(p.ReadFields());
-                }
-            }
-            dataGridViewDisp(dt);
         }
 
         private void dataGridViewDisp(DataTable dt)
         {
-            bookDataGrid.RowTemplate.Height = 30;
+//            bookDataGrid.RowTemplate.Height = 30;
 
-            bookDataGrid.RowTemplate.DefaultCellStyle.Padding = new Padding(5);
+//            bookDataGrid.RowTemplate.DefaultCellStyle.Padding = new Padding(5);
 
             bookDataGrid.DataSource = dt;
+
+            bookDataGrid.AutoGenerateColumns = true;
         }
 
         private void RemoveButtonClicked(object sender, EventArgs e)
@@ -148,6 +134,37 @@ namespace BookManager
             }
             return sCell;
         }
+
+        private void readButtonClicked(object sender, EventArgs e)
+        {
+            // 読込先
+            const string FILE_PATH = @"bookManager.csv";
+            //const string FILE_PATH = @"d:\sample.csv";
+
+            // DataTableを作成する
+            DataTable dt = createDataTable();
+
+            // Shift-JISでファイルを開く
+            using (TextFieldParser p = new TextFieldParser(FILE_PATH, System.Text.Encoding.Default))
+            {
+                // カンマ区切りで分割する
+                p.TextFieldType = FieldType.Delimited;
+                p.Delimiters = new string[] { "," };
+
+                // １行目を無視する（ヘッダー）
+                string[] csvHeader = p.ReadFields();
+
+                // ２行目～最終行までループする
+                while (!p.EndOfData)
+                {
+                    // DataTableに行のデータを追加する
+                    dt.Rows.Add(p.ReadFields());
+                }
+            }
+
+            // 一覧を表示する
+            dataGridViewDisp(dt);
+        }
         private DataTable createDataTable()
         {
 
@@ -155,17 +172,17 @@ namespace BookManager
             DataTable dt = new DataTable();
 
             // 列を作成する
-//            dt.Columns.Add("no", typeof(int));                        // No
-            dt.Columns.Add("署名", typeof(String));                   // 書名
+            //            dt.Columns.Add("no", typeof(int));                        // No
+            dt.Columns.Add("書名", typeof(String));                   // 書名
             dt.Columns.Add("著者", typeof(String));                   // 著者名
-            dt.Columns.Add("価格", typeof(Decimal));                  // 価格
-//            dt.Columns.Add("publisher", typeof(String));              // 出版社名
-//            dt.Columns.Add("publication_date", typeof(DateTime));     // 出版年月
-//            dt.Columns.Add("stock", typeof(bool));                    // 在庫
+            dt.Columns.Add("値段", typeof(System.Int32));                  // 価格
+//            dt.Columns.Add("値段", typeof(Decimal));                  // 価格
+            //            dt.Columns.Add("publisher", typeof(String));              // 出版社名
+            //            dt.Columns.Add("publication_date", typeof(DateTime));     // 出版年月
+            //            dt.Columns.Add("stock", typeof(bool));                    // 在庫
 
             // DataTableを返す
             return dt;
         }
-
     }
 }

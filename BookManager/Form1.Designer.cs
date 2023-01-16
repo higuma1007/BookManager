@@ -221,7 +221,7 @@ namespace BookManager
             this.readButton.TabIndex = 11;
             this.readButton.Text = "CSVファイルから読み込み";
             this.readButton.UseVisualStyleBackColor = true;
-            this.readButton.Click += new System.EventHandler(this.button1_Click);
+            this.readButton.Click += new System.EventHandler(this.readButtonClicked);
             // 
             // bindingSource2
             // 
